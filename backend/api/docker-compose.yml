@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  flask:
+    container_name: sw-api
+    build: .
+    ports:
+      - "5001:5000"
+    volumes:
+      - .:/src
+    depends_on:
+      - mysql
+    links:
+      - mysql
+  mysql:
+    image: mysql:latest
+    restart: always
+    container_name: mybd
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: starwars
+    ports:
+      - "32000:3306"
+    volumes:
+      - ./src/database:/docker-entrypoint-initdb.d
+      # - ./data:/var/lib/mysql
