@@ -40,7 +40,6 @@ def get_paginate(page):
 def search():
     try:
         q = request.args.get('q')
-        print('q',q)
         results = PeopleService.search_people(q)
         return JsonFormat.successResponse({"people":results})
     except Exception as ex:

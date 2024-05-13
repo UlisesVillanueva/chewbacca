@@ -1,7 +1,6 @@
 from flask import Flask
 from flask_jwt_extended import JWTManager
 from datetime import timedelta
-from flask_paginate import Pagination, get_page_args
 from .routes import  index, people, auth
 from flask_cors import CORS
 
@@ -22,17 +21,5 @@ def init_app(config):
     app.config['JWT_SECRET_KEY'] = 'super'
     app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(days=7)
     JWTManager(app)
-
-
-  
-
-
-    # # Configure pagination
-    # @app.template_global()
-    # def paginate(items, per_page=10):
-    #     page, per_page, offset = get_page_args()
-    #     total = len(items)
-    #     pagination = Pagination(page=page, per_page=per_page, total=total)
-    #     return items[offset: offset + per_page], pagination
 
     return app

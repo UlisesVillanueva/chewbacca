@@ -9,15 +9,8 @@ main = Blueprint('auth_blueprint', __name__)
 def login():
     username = request.json.get('username')
     password = request.json.get('password')
-    if username == 'uli' and password == 'mones':
+    if username == 'super' and password == 'admin':
         access_token = create_access_token(identity=username)
         return jsonify({'message': "SUCCESS", 'success': True, "access_token":access_token}), 200
     else:
         return jsonify({'message': "Credenciales inválidas", 'success': False}), 200
-
-    
-
-
-    # return jsonify({'message': "SUCCESS", 'success': True}), 200
-    # except Exception as ex:
-    #     return jsonify({'message': "Internal Server Error", 'success': False}), 500

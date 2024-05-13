@@ -1,7 +1,7 @@
 
 from src.database.db_mysql import get_connection
 import json
-import datetime 
+
 def get_people_all():
     conexion = get_connection()
     with conexion.cursor() as cursor:
@@ -13,6 +13,7 @@ def get_people_all():
 
 def get_people_pagination(page):
     try:
+        print('page',page)
         conexion = get_connection()
         perpage=9
         startat=page*perpage
@@ -28,7 +29,6 @@ def get_people_pagination(page):
             conexion.close()
     except Exception as ex:
         print(ex)
-
     return res
 
 def get_films_by_people(people_id):
@@ -60,8 +60,6 @@ def search_people(query):
         print('query',query)
         conexion = get_connection()
         with conexion.cursor() as cursor:
-
-
             cursor.execute("SELECT people.people_id, people.gender, people.name, people.dob, people.created_at, world.name as home_world FROM people JOIN people_film ON people.people_id = people_film.people_id JOIN film ON people_film.film_id = film.film_id JOIN world ON people.homeworld_id = world.world_id WHERE people.name like '%{q1}%' OR world.name like  '%{q2}%' GROUP BY people.people_id".format(q1=query, q2=query))  
             print(cursor.description)
             columns = [column[0] for column in cursor.description]

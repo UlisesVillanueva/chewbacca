@@ -3,7 +3,7 @@ from decouple import config
 from flask import jsonify, request
 from src.utils.Logger import Logger
 
-API_KEY = config('API_KEY')
+API_KEY = 'supersecretkey'
 
 
 class Security():
