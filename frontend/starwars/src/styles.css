@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+    background-image:url(/assets/galaxies.jpg);
+    background-repeat: repeat; 
+    width: 100vw; 
+    height: 100vh; 
+
+}
+
+
+body { font-family: 'rubik', sans-serif; }
+
+input {
+    background: #545353 !important;
+    margin-bottom: 15px !important;
+}
+
+button {
+    width: 100%;
+}
+
+
+footer{
+    background: #262625;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+}
+.card{
+    background: #545353;
+    color:white;
+    border-radius: 22px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin: 10px;
+    transition: 0.5s;
+    background: #252525;
+    opacity: 0.9;
+}
+
+
+.card-character {
+    background: #262625;
+    color:rgb(197, 141, 74);
+    border-radius: 6rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin: 10px;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: row;
+}
+
+.character-content{
+    margin: auto;
+    padding: 2rem
+}
+
+.card:hover {
+    transform: scale(1.05);
+    animation: moveUpDown 0.5s infinite alternate;
+    background: #1a202c;
+    opacity: 1;
+}
+
+.link-se-more{
+    background: rgb(75, 60, 24);
+    border-radius: 10px;
+    padding: 5px;
+    font-size: medium;
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+p{
+    margin-bottom: 4px !important;
+}
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+
+
+.card-img{
+width: 100%;
+height: 100%;
+object-fit: cover;
+}

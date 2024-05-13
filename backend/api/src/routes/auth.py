@@ -13,7 +13,7 @@ def login():
         access_token = create_access_token(identity=username)
         return jsonify({'message': "SUCCESS", 'success': True, "access_token":access_token}), 200
     else:
-        return jsonify({"msg": "Credenciales inválidas"}), 401
+        return jsonify({'message': "Credenciales inválidas", 'success': False}), 200
 
     
 

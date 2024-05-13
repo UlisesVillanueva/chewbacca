@@ -3,9 +3,10 @@ from flask_jwt_extended import JWTManager
 from datetime import timedelta
 from flask_paginate import Pagination, get_page_args
 from .routes import  index, people, auth
+from flask_cors import CORS
 
 app = Flask(__name__)
-
+CORS(app=app, resources={r"*": {"origins": "*"}})
 
 def init_app(config):
     """Main application function."""
@@ -22,6 +23,8 @@ def init_app(config):
     app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(days=7)
     JWTManager(app)
 
+
+  
 
 
     # # Configure pagination

@@ -1,5 +1,5 @@
 from src.utils.Logger import Logger
-from src.controllers.people import get_people_pagination, get_people_all
+from src.controllers.people import get_people_pagination, get_people_all, search_people
 import pandas as pd
 import numpy as np
 import traceback
@@ -18,6 +18,17 @@ class PeopleService():
             Logger.add_to_log("error", traceback.format_exc())
 
    
+    def search_people(q):
+        try:
+
+            results = search_people(q)
+            # print('s',results)
+            return results
+        except Exception as ex:
+            print(ex)
+            Logger.add_to_log("error", str(ex))
+            Logger.add_to_log("error", traceback.format_exc())
+
 
     def get_all():
         try:
@@ -29,7 +40,6 @@ class PeopleService():
 
             json_results = to_json(results)
             return json_results
-            return results
         except Exception as ex:
             Logger.add_to_log("error", str(ex))
             Logger.add_to_log("error", traceback.format_exc())
